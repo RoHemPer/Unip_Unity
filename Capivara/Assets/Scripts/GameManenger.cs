@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManenger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
-    [SerializeField] int score;
+    private int score;
     [SerializeField] private GameObject GameOverObj;
     [SerializeField] private GameObject StartObj;
+
+    private bool gamePaused = false; // Variável para controlar o estado do jogo
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
-        StartObj.SetActive (true);
+        StartObj.SetActive(true);
     }
 
     public void StartButton()
@@ -28,17 +30,47 @@ public class GameManenger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = score.ToString();
+        // Verifica se o jogo está pausado antes de atualizar o placar
+        if (!gamePaused)
+        {
+        
+        }
     }
 
     public void GameOver()
     {
         GameOverObj.SetActive(true);
+        gamePaused = true; // Define o estado do jogo como pausado quando o jogo termina
     }
 
     public void RestartButton()
     {
+        // Oculta o objeto de Game Over
         GameOverObj.SetActive(false);
-        SceneManager.LoadScene(0); 
+
+        // Reinicia o placar para zero
+        score = 0;
+
+        // Carrega a cena atual para reiniciar o jogo
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        // Define o tempo para 0 para garantir que o jogo comece pausado
+        Time.timeScale = 0;
+
+        // Ativa o objeto de início
+        StartObj.SetActive(true);
+
+        gamePaused = true; // Pausa o jogo ao reiniciar
+    }
+
+    public bool IsGameOver()
+    {
+        return gamePaused;
+    }
+
+    public void Scoring()
+    {
+        score ++;
+        scoreText.text = score.ToString();
     }
 }

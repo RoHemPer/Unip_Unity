@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.6, y: -0.19}
+  m_AnchoredPosition: {x: -5.722, y: -0.077}
   m_SizeDelta: {x: 2.875, y: 1.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &262591009
@@ -417,7 +417,7 @@ MonoBehaviour:
   gravity: -9
   force: 5
   rotationSpeed: 2
-  gameManger: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!61 &262591013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12789321, y: 0.076735854}
+  m_Offset: {x: -0.23513365, y: 0.06259194}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -461,7 +461,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6192136, y: 1.1361125}
+  m_Size: {x: 1.3839788, y: 0.7306537}
   m_EdgeRadius: 0
 --- !u!114 &262591014
 MonoBehaviour:
@@ -519,7 +519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 127826909}
-  score: 0
   GameOverObj: {fileID: 1838533682}
   StartObj: {fileID: 649075326}
 --- !u!224 &541239752
@@ -1552,13 +1551,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 541239750}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 541239751}
+        m_TargetAssemblyTypeName: GameManenger, Assembly-CSharp
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
