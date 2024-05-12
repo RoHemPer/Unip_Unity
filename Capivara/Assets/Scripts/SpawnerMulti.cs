@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Spawner : MonoBehaviour
+public class SpawnerMulti : MonoBehaviour
 {
     [SerializeField] GameObject barrilprefab;
     [SerializeField] float time = 2f;

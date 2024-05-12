@@ -9,22 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text scoreText;
     private int score;
     [SerializeField] private GameObject GameOverObj;
-    [SerializeField] private GameObject StartObj;
+    [SerializeField] private Spawner spawner; // Adicionado o Spawner
 
     private bool gamePaused = false; // Variável para controlar o estado do jogo
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
-        StartObj.SetActive(true);
-    }
-
-    public void StartButton()
-    {
         Time.timeScale = 1;
         GameOverObj.SetActive(false);
-        StartObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         GameOverObj.SetActive(true);
         gamePaused = true; // Define o estado do jogo como pausado quando o jogo termina
+        spawner.Pause(); // Pausa o Spawner quando o jogo termina
     }
 
     public void RestartButton()
@@ -54,13 +48,11 @@ public class GameManager : MonoBehaviour
         // Carrega a cena atual para reiniciar o jogo
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-        // Define o tempo para 0 para garantir que o jogo comece pausado
-        Time.timeScale = 0;
-
-        // Ativa o objeto de início
-        StartObj.SetActive(true);
+        // Define o tempo para 1 para garantir que o jogo comece imediatamente
+        Time.timeScale = 1;
 
         gamePaused = true; // Pausa o jogo ao reiniciar
+        spawner.Resume(); // Retoma o Spawner quando o jogo reinicia
     }
 
     public bool IsGameOver()

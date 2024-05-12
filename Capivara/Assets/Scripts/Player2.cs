@@ -1,21 +1,21 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
-    [SerializeField] Vector3 axis;
-    [SerializeField] float gravity = -9f;
-    [SerializeField] float force = 5f;
-    [SerializeField] float rotationSpeed = 2f; // Velocidade de rotação inicial
+    [SerializeField] private Vector3 axis;
+    [SerializeField] private float gravity = -9f;
+    [SerializeField] private float force = 5f;
+    [SerializeField] private float rotationSpeed = 2f; // Velocidade de rotação inicial
 
     private float jumpStartTime;
     private float rotationSpeedIncreaseInterval = 2f; // Intervalo para aumentar a velocidade de rotação
     private float lastRotationSpeedIncreaseTime; // Última vez que a velocidade de rotação foi aumentada
-    public GameManager gameManager; 
+    public GameManagerMult gameManager; 
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
+        gameManager = GameObject.FindObjectOfType<GameManagerMult>();
         lastRotationSpeedIncreaseTime = Time.time; // Inicializa o contador
     }
 
@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
                 jumpStartTime = Time.time;
             }
 
-            // Rotaciona o objeto na direção em que ele está indo
-            transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+            // Rotaciona o objeto na direção oposta à do Player1
+            transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
 
             // Verifica se já passaram 2 segundos desde o último aumento de velocidade
             if (Time.time - lastRotationSpeedIncreaseTime >= rotationSpeedIncreaseInterval)
@@ -51,11 +51,11 @@ public class Player : MonoBehaviour
     {
         if(collision.CompareTag("Obstacles"))
         {
-            gameManager.GameOver();
+            gameManager.PausePlayer2(); // Pausa o jogador 2
         }
         if(collision.CompareTag("Scoring"))
         {
-            gameManager.Scoring();
+            gameManager.ScoringPlayer2(); // Pontua para o jogador 2
         }
     }
 }
