@@ -7,7 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Inicio.unity
+    guid: c3da5ecad8904b340b73eea403531ef1
+  - enabled: 1
+    path: Assets/Cutscene.unity
+    guid: 677ec318c2fb0c44389ddbc8271d2f7d
+  - enabled: 1
+    path: Assets/Simgle.unity
+    guid: d75e8aa1cec9fa445aed8e3592e56b2e
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 75264ce977e1a2b43b57700f333052b1, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: ad00ba587a9fe73468548cb2b35ddc8f, type: 2}
